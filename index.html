@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Portfolio of a Cloud, AI & Cybersecurity Specialist. Securing the future of intelligence.">
+    <title>Secure Intelligence | Cloud & AI</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Outfit:wght@500;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Icons (FontAwesome & Devicon) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <!-- Custom Cursor -->
+    <div class="cursor-dot" data-cursor-dot></div>
+    <div class="cursor-outline" data-cursor-outline></div>
+
+    <!-- Cyber Grid Background -->
+    <div class="cyber-grid"></div>
+    <canvas id="data-network"></canvas>
+    <div class="scanline"></div>
+
+    <!-- Scroll Progress Lines -->
+    <div class="scroll-line-container left-line">
+        <div class="scroll-light"></div>
+    </div>
+    <div class="scroll-line-container right-line">
+        <div class="scroll-light"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar glass">
+        <div class="container nav-content">
+            <a href="#hero" class="logo">>_ Dev<span class="accent">SecOps</span></a>
+            <ul class="nav-links">
+                <li><a href="#about">// About</a></li>
+                <li><a href="#projects">// Protocols</a></li>
+                <li><a href="#contact">// Uplink</a></li>
+                <li><a href="assets/resume.pdf" class="btn-small-resume" download>INIT_RESUME <i
+                            class="fas fa-download"></i></a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header id="hero" class="hero-section">
+        <div class="container hero-content">
+            <div class="hero-text-wrapper">
+                <span class="greeting-badge"><i class="fas fa-circle-notch fa-spin"></i> System: Online</span>
+                <h1 class="main-title glitch-wrapper">
+                    <span class="block-reveal">Architecting</span>
+                    <span class="block-reveal dynamic-text" data-text="Intelligence">Intelligence</span>
+                    <span class="block-reveal">Securing Data</span>
+                </h1>
+                <p class="subtitle">Bridging the gap between scalable Cloud Infrastructure, Advanced AI Models, and
+                    Offensive Security.</p>
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn btn-primary magnetic-btn"><i class="fas fa-terminal"></i> Execute
+                        Projects</a>
+                    <a href="assets/resume.pdf" class="btn btn-secondary magnetic-btn" download><i
+                            class="fas fa-file-code"></i> Decrypt CV</a>
+                </div>
+            </div>
+        </div>
+        <!-- Abstract Network Elements -->
+        <div class="network-node node-1"></div>
+        <div class="network-node node-2"></div>
+    </header>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title outline-text">Kernel_Info</h2>
+            </div>
+            <div class="about-grid">
+                <div class="about-text scroll-reveal">
+                    <h3>Building the <br><span class="accent">Secure Future</span></h3>
+                    <p>I don't just build apps; I engineer resilient ecosystems. My passion lies at the intersection of
+                        Cloud Engineering, Artificial Intelligence, and Cybersecurity.</p>
+                    <p>From deploying self-healing clusters in Kubernetes to training LLMs and hardening endpoints
+                        against zero-day threats.</p>
+                    <div class="skills-ticker">
+                        <!-- Infinite scroll ticker content with ICONS -->
+                        <div class="ticker-content">
+                            <i class="devicon-amazonwebservices-plain-wordmark"></i>
+                            <i class="devicon-docker-plain"></i>
+                            <i class="devicon-kubernetes-plain"></i>
+                            <i class="devicon-python-plain"></i>
+                            <i class="devicon-tensorflow-original"></i>
+                            <i class="devicon-linux-plain"></i>
+                            <i class="devicon-git-plain"></i>
+                            <i class="devicon-react-original"></i>
+                            <!-- Duplicate for seamless loop -->
+                            <i class="devicon-amazonwebservices-plain-wordmark"></i>
+                            <i class="devicon-docker-plain"></i>
+                            <i class="devicon-kubernetes-plain"></i>
+                            <i class="devicon-python-plain"></i>
+                            <i class="devicon-tensorflow-original"></i>
+                            <i class="devicon-linux-plain"></i>
+                            <i class="devicon-git-plain"></i>
+                            <i class="devicon-react-original"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-visual scroll-reveal delay-200">
+                    <div class="stats-card glass-card tilt-card">
+                        <div class="card-content">
+                            <h4><i class="fas fa-server"></i> Uptime</h4>
+                            <p class="big-number">99.9%</p>
+                            <p>Reliability</p>
+                        </div>
+                    </div>
+                    <div class="stats-card glass-card tilt-card offset">
+                        <div class="card-content">
+                            <h4><i class="fas fa-shield-alt"></i> Threats</h4>
+                            <p class="big-number">0</p>
+                            <p>Unresolved</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Network Traffic Separator -->
+    <div class="cyber-separator">
+        <div class="packet"></div>
+        <div class="packet delay-1"></div>
+    </div>
+
+    <!-- Skills Section (Redesigned) -->
+    <section id="skills" class="section">
+        <div class="container">
+            <h2 class="section-title">System_Modules</h2>
+            <div class="skills-grid">
+
+                <!-- Category 1: Infrastructure -->
+                <div class="cyber-card scroll-reveal">
+                    <div class="card-decoration top-left"></div>
+                    <div class="card-decoration bottom-right"></div>
+                    <h3 class="skill-cat-title"><i class="fas fa-network-wired"></i> Infrastructure</h3>
+                    <div class="chip-grid">
+                        <div class="tech-chip"><i class="devicon-amazonwebservices-plain"></i> <span>AWS</span></div>
+                        <div class="tech-chip"><i class="devicon-azure-plain"></i> <span>Azure</span></div>
+                        <div class="tech-chip"><i class="devicon-docker-plain"></i> <span>Docker</span></div>
+                        <div class="tech-chip"><i class="devicon-kubernetes-plain"></i> <span>K8s</span></div>
+                        <div class="tech-chip"><i class="devicon-terraform-plain"></i> <span>Terraform</span></div>
+                        <div class="tech-chip"><i class="devicon-linux-plain"></i> <span>Linux</span></div>
+                    </div>
+                </div>
+
+                <!-- Category 2: Security_Ops -->
+                <div class="cyber-card scroll-reveal delay-200">
+                    <div class="card-decoration top-left"></div>
+                    <div class="card-decoration bottom-right"></div>
+                    <h3 class="skill-cat-title"><i class="fas fa-shield-virus"></i> Security_Ops</h3>
+                    <div class="chip-grid">
+                        <div class="tech-chip"><i class="fas fa-bug"></i> <span>Pentest</span></div>
+                        <div class="tech-chip"><i class="fas fa-search-dollar"></i> <span>Splunk</span></div>
+                        <div class="tech-chip"><i class="fas fa-wifi"></i> <span>Wireshark</span></div>
+                        <div class="tech-chip"><i class="fas fa-user-secret"></i> <span>BurpSuite</span></div>
+                        <div class="tech-chip"><i class="fas fa-fire-alt"></i> <span>WAF</span></div>
+                        <div class="tech-chip"><i class="fas fa-key"></i> <span>Crypto</span></div>
+                    </div>
+                </div>
+
+                <!-- Category 3: AI & Code -->
+                <div class="cyber-card scroll-reveal delay-400">
+                    <div class="card-decoration top-left"></div>
+                    <div class="card-decoration bottom-right"></div>
+                    <h3 class="skill-cat-title"><i class="fas fa-brain"></i> AI & Code</h3>
+                    <div class="chip-grid">
+                        <div class="tech-chip"><i class="devicon-python-plain"></i> <span>Python</span></div>
+                        <div class="tech-chip"><i class="devicon-bash-plain"></i> <span>Bash</span></div>
+                        <div class="tech-chip"><i class="devicon-go-plain"></i> <span>GoLang</span></div>
+                        <div class="tech-chip"><i class="devicon-tensorflow-original"></i> <span>TensorFlow</span></div>
+                        <div class="tech-chip"><i class="devicon-pytorch-original"></i> <span>PyTorch</span></div>
+                        <div class="tech-chip"><i class="devicon-git-plain"></i> <span>GitOps</span></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Network Traffic Separator -->
+    <div class="cyber-separator">
+        <div class="packet"></div>
+        <div class="packet delay-2"></div>
+    </div>
+
+    <!-- Credentials Section (Exp, Edu, Certs) -->
+    <section id="credentials" class="section">
+        <div class="container">
+            <h2 class="section-title">System_Logs</h2>
+
+            <div class="credentials-grid">
+                <!-- Experience Col -->
+                <div class="credential-col">
+                    <h3 class="col-title"><i class="fas fa-briefcase"></i> Runtime_History</h3>
+
+                    <div class="log-entry scroll-reveal">
+                        <span class="log-date">2023 - Present</span>
+                        <div class="log-card">
+                            <h4>Senior Cloud Engineer</h4>
+                            <span class="company">TechCorp_Systems</span>
+                            <p>Architected multi-region AWS infrastructure reducing latency by 40%. Implemented
+                                DevSecOps pipelines.</p>
+                        </div>
+                    </div>
+
+                    <div class="log-entry scroll-reveal delay-200">
+                        <span class="log-date">2021 - 2023</span>
+                        <div class="log-card">
+                            <h4>Cybersecurity Analyst</h4>
+                            <span class="company">SecureNet_Solutions</span>
+                            <p>Conducted penetration testing and vulnerability assessments. Hardened Linux servers
+                                against brute-force attacks.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Edu & Certs Col -->
+                <div class="credential-col">
+                    <h3 class="col-title"><i class="fas fa-graduation-cap"></i> Kernel_Updates</h3>
+
+                    <!-- Education -->
+                    <div class="log-entry scroll-reveal">
+                        <span class="log-date">2017 - 2021</span>
+                        <div class="log-card">
+                            <h4>B.S. Computer Science</h4>
+                            <span class="company">University_of_Tech</span>
+                            <p>Focus on Network Security and Distributed Systems.</p>
+                        </div>
+                    </div>
+
+                    <!-- Certifications -->
+                    <h3 class="col-title mt-2"><i class="fas fa-certificate"></i> Verified_Keys</h3>
+                    <div class="cert-grid">
+                        <div class="cert-item scroll-reveal delay-200">
+                            <i class="fab fa-aws fa-2x"></i>
+                            <div>
+                                <h5>AWS Certified</h5>
+                                <span class="cert-name">Solutions Architect</span>
+                            </div>
+                        </div>
+                        <div class="cert-item scroll-reveal delay-400">
+                            <i class="fas fa-user-shield fa-2x"></i>
+                            <div>
+                                <h5>CompTIA</h5>
+                                <span class="cert-name">Security+</span>
+                            </div>
+                        </div>
+                        <div class="cert-item scroll-reveal delay-400">
+                            <i class="fab fa-linux fa-2x"></i>
+                            <div>
+                                <h5>LPI</h5>
+                                <span class="cert-name">Linux Essentials</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Network Traffic Separator -->
+    <div class="cyber-separator">
+        <div class="packet"></div>
+        <div class="packet delay-2"></div>
+    </div>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section">
+        <div class="container">
+            <h2 class="section-title">Deployment_Log</h2>
+
+            <div class="project-slider">
+                <button class="slider-btn prev-btn"><i class="fas fa-chevron-left"></i></button>
+
+                <div class="slider-container">
+                    <div class="slider-track">
+                        <!-- Project Card 1 (Slide) -->
+                        <div class="slide">
+                            <article class="project-card">
+                                <div class="card-inner">
+                                    <div class="project-content">
+                                        <span class="project-number">01</span>
+                                        <h3>Secure Cloud Migration</h3>
+                                        <p>Migrated legacy monoliths to microservices on AWS with zero-trust
+                                            architecture.</p>
+                                        <div class="tags">
+                                            <span><i class="devicon-amazonwebservices-plain"></i> AWS Lambda</span>
+                                            <span><i class="devicon-terraform-plain"></i> Terraform</span>
+                                        </div>
+                                        <a href="project_details.html?id=secure_cloud"
+                                            class="link-arrow magnetic-btn">View Architecture</a>
+                                    </div>
+                                    <div class="project-visual placeholder-gradient-1">
+                                        <div class="terminal-header">
+                                            <span class="dot red"></span><span class="dot yellow"></span><span
+                                                class="dot green"></span>
+                                            <span class="term-title">aws_config.yaml</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+
+                        <!-- Project Card 2 (Slide) -->
+                        <div class="slide">
+                            <article class="project-card">
+                                <div class="card-inner">
+                                    <div class="project-content">
+                                        <span class="project-number">02</span>
+                                        <h3>AI Threat Detection</h3>
+                                        <p>Machine Learning model trained to detect anomaly traffic patterns in
+                                            real-time.</p>
+                                        <div class="tags">
+                                            <span><i class="devicon-python-plain"></i> Python</span>
+                                            <span><i class="devicon-scikitlearn-plain"></i> Scikit-Learn</span>
+                                        </div>
+                                        <a href="project_details.html?id=ai_threat" class="link-arrow magnetic-btn">View
+                                            Model</a>
+                                    </div>
+                                    <div class="project-visual placeholder-gradient-2">
+                                        <div class="terminal-header">
+                                            <span class="dot red"></span><span class="dot yellow"></span><span
+                                                class="dot green"></span>
+                                            <span class="term-title">train_model.py</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+
+                        <!-- Project Card 3 (Slide) -->
+                        <div class="slide">
+                            <article class="project-card">
+                                <div class="card-inner">
+                                    <div class="project-content">
+                                        <span class="project-number">03</span>
+                                        <h3>Penetration Testing Lab</h3>
+                                        <p>Automated pentesting environment setup using Docker and custom bash scripts.
+                                        </p>
+                                        <div class="tags">
+                                            <span><i class="devicon-bash-plain"></i> Bash</span>
+                                            <span><i class="devicon-docker-plain"></i> Docker</span>
+                                        </div>
+                                        <a href="project_details.html?id=pentest_lab"
+                                            class="link-arrow magnetic-btn">View Scripts</a>
+                                    </div>
+                                    <div class="project-visual placeholder-gradient-3">
+                                        <div class="terminal-header">
+                                            <span class="dot red"></span><span class="dot yellow"></span><span
+                                                class="dot green"></span>
+                                            <span class="term-title">exploit.sh</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="slider-btn next-btn"><i class="fas fa-chevron-right"></i></button>
+            </div>
+
+            <div class="slider-indicators">
+                <span class="dot active"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <div class="container contact-container">
+            <div class="contact-text scroll-reveal">
+                <h2 class="section-title">Establish_Link</h2>
+                <p>Ready to secure your infrastructure or build the next AI breakthrough?</p>
+                <div class="contact-details">
+                    <a href="mailto:secure@example.com" class="contact-link"><i class="fas fa-envelope"></i>
+                        secure@example.com</a>
+                </div>
+            </div>
+            <form class="contact-form glass scroll-reveal delay-200" id="contactForm">
+                <div class="form-group">
+                    <label for="name">Identifier</label>
+                    <input type="text" id="name" placeholder="usr_01" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Signal Source</label>
+                    <input type="email" id="email" placeholder="encrypted@net.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Payload</label>
+                    <textarea id="message" rows="4" placeholder="Inject message..." required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary full-width" id="submitBtn">
+                    <span class="btn-text">Transmit Data</span>
+                    <span class="btn-loader"><i class="fas fa-circle-notch fa-spin"></i></span>
+                </button>
+            </form>
+
+            <!-- Success Animation Container (Hidden by default) -->
+            <div class="success-message" id="successMessage" style="display: none;">
+                <div class="success-icon">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <h3>Transmission Complete</h3>
+                <p>Payload successfully uploaded to the mainframe.</p>
+                <button class="btn btn-secondary btn-small" onclick="location.reload()">Reset Link</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <!-- Footer: Tactical Data Console -->
+    <footer class="tactical-footer">
+        <div class="footer-overlay"></div>
+        <div class="container footer-grid">
+
+            <!-- Col 1: System Status -->
+            <div class="footer-col left-col">
+                <h4 class="footer-label">SYSTEM_STATUS</h4>
+                <div class="status-box">
+                    <span class="pulse-icon"></span>
+                    <span class="status-msg">OPTIMAL</span>
+                </div>
+                <div class="signal-bars">
+                    <div class="bar" style="height: 30%"></div>
+                    <div class="bar" style="height: 70%"></div>
+                    <div class="bar" style="height: 50%"></div>
+                    <div class="bar" style="height: 100%"></div>
+                    <div class="bar" style="height: 80%"></div>
+                </div>
+            </div>
+
+            <!-- Col 2: Navigation & Socials -->
+            <div class="footer-col center-col">
+                <img src="https://fontmeme.com/permalink/240201/cyber-font.png" alt="Secure_Dev" class="footer-logo-img"
+                    style="display:none;"> <!-- Placeholder -->
+                <div class="logo-text">>_ SECURE_DEV</div>
+
+                <div class="footer-links">
+                    <a href="#hero">HOME</a>
+                    <a href="#about">INTEL</a>
+                    <a href="#projects">MISSIONS</a>
+                    <a href="#contact">UPLINK</a>
+                </div>
+
+                <div class="social-hex-grid">
+                    <a href="#" class="hex-link" aria-label="Github"><i class="fab fa-github"></i></a>
+                    <a href="#" class="hex-link" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" class="hex-link" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+
+            <!-- Col 3: Coordinates -->
+            <div class="footer-col right-col">
+                <h4 class="footer-label">GEO_LOCK</h4>
+                <div class="coords">
+                    <span>LAT: 33.59.01 N</span>
+                    <span>LNG: 112.09.43 W</span>
+                </div>
+                <div class="uptime">SESSION: <span id="session-timer">00:00:00</span></div>
+            </div>
+
+        </div>
+
+        <!-- Scrolling Ticker -->
+        <div class="footer-ticker">
+            <div class="ticker-text">
+                // SECURE_DEV v2.5 // ALL SYSTEMS NOMINAL // ENCRYPTION: AES-256 // ESTABLISHING SECURE CONNECTION... //
+                WELCOME USER //
+            </div>
+        </div>
+    </footer>
+
+    <!-- Skill Details Modal -->
+    <div id="skill-modal" class="cyber-modal">
+        <div class="modal-overlay"></div>
+        <div class="modal-content glass-card">
+            <button class="modal-close"><i class="fas fa-times"></i></button>
+            <div class="modal-header">
+                <i class="modal-icon devicon-amazonwebservices-plain"></i>
+                <h3 class="modal-title">AWS Infrastructure</h3>
+            </div>
+            <div class="modal-body">
+                <p class="modal-desc">Deep expertise in architecting scalable solutions.</p>
+                <div class="modal-stats">
+                    <div class="stat-row">
+                        <span>Proficiency:</span>
+                        <div class="stat-bar">
+                            <div class="stat-fill" style="width: 90%"></div>
+                        </div>
+                    </div>
+                </div>
+                <ul class="modal-tags">
+                    <li>EC2</li>
+                    <li>Lambda</li>
+                    <li>S3</li>
+                </ul>
+            </div>
+            <div class="modal-decoration"></div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CLASSIFIED FILE | Secure_Dev</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --term-bg: #0a0a0a;
+            --term-green: #0aff60;
+            --term-dim: #004d1a;
+            --term-alert: #ff003c;
+            --scan-line: rgba(10, 255, 96, 0.05);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--term-bg);
+            color: var(--term-green);
+            font-family: 'Share Tech Mono', monospace;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* --- CRT Screen Effect --- */
+        .crt-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background:
+                linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%),
+                linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+            background-size: 100% 2px, 3px 100%;
+            pointer-events: none;
+            z-index: 100;
+        }
+
+        .scanline {
+            width: 100%;
+            height: 10px;
+            background: rgba(10, 255, 96, 0.1);
+            opacity: 0.1;
+            position: fixed;
+            left: 0;
+            top: 0;
+            animation: scan 10s linear infinite;
+            pointer-events: none;
+            z-index: 99;
+        }
+
+        @keyframes scan {
+            0% {
+                top: -10%;
+            }
+
+            100% {
+                top: 110%;
+            }
+        }
+
+        /* --- Main Terminal Wrapper --- */
+        .terminal-wrapper {
+            width: 95%;
+            height: 90%;
+            border: 2px solid var(--term-dim);
+            position: relative;
+            padding: 20px;
+            display: grid;
+            grid-template-rows: auto 1fr auto;
+            gap: 20px;
+            box-shadow: 0 0 20px var(--term-dim), inset 0 0 50px rgba(0, 0, 0, 0.8);
+            background: rgba(0, 20, 5, 0.9);
+        }
+
+        /* Header */
+        .term-header {
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px solid var(--term-dim);
+            padding-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .term-status {
+            color: var(--term-alert);
+            animation: blink 1s infinite;
+        }
+
+        /* Content Grid */
+        .term-grid {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 20px;
+            overflow: hidden;
+        }
+
+        /* Sidebar Info */
+        .file-meta {
+            border-right: 1px solid var(--term-dim);
+            padding-right: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .meta-block h3 {
+            color: var(--term-dim);
+            font-size: 0.8rem;
+            margin-bottom: 5px;
+        }
+
+        .meta-value {
+            font-size: 1.1rem;
+            text-shadow: 0 0 5px var(--term-green);
+        }
+
+        /* Main Display */
+        .file-content {
+            overflow-y: auto;
+            padding-right: 10px;
+        }
+
+        .file-content h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px var(--term-green);
+        }
+
+        .file-content h2 {
+            margin-top: 30px;
+            margin-bottom: 10px;
+            color: #fff;
+            font-size: 1.2rem;
+            border-left: 3px solid var(--term-green);
+            padding-left: 10px;
+        }
+
+        .file-content p {
+            line-height: 1.6;
+            color: #ccffdc;
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+        }
+
+        /* Code Display */
+        .code-display {
+            background: #001a09;
+            border: 1px solid var(--term-dim);
+            padding: 15px;
+            margin-top: 20px;
+            font-family: 'Courier New', Courier, monospace;
+            color: #aaffc3;
+            white-space: pre-wrap;
+            position: relative;
+        }
+
+        .code-display::before {
+            content: "SOURCE_CODE_PREVIEW";
+            position: absolute;
+            top: -10px;
+            left: 10px;
+            background: #001a09;
+            padding: 0 5px;
+            color: var(--term-dim);
+            font-size: 0.8rem;
+        }
+
+        /* Footer */
+        .term-footer {
+            border-top: 1px solid var(--term-dim);
+            padding-top: 10px;
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.8rem;
+            color: var(--term-dim);
+        }
+
+        .back-btn {
+            background: transparent;
+            border: 1px solid var(--term-green);
+            color: var(--term-green);
+            padding: 5px 20px;
+            cursor: pointer;
+            font-family: inherit;
+            transition: 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .back-btn:hover {
+            background: var(--term-green);
+            color: #000;
+            box-shadow: 0 0 15px var(--term-green);
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 5px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--term-bg);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--term-dim);
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--term-green);
+        }
+
+        @keyframes blink {
+            50% {
+                opacity: 0;
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 800px) {
+            .term-grid {
+                grid-template-columns: 1fr;
+                overflow-y: auto;
+            }
+
+            .file-meta {
+                border-right: none;
+                border-bottom: 1px solid var(--term-dim);
+                padding-bottom: 20px;
+                padding-right: 0;
+                flex-direction: row;
+                flex-wrap: wrap;
+            }
+
+            body {
+                overflow: auto;
+                height: auto;
+                padding: 20px 0;
+            }
+
+            .terminal-wrapper {
+                height: auto;
+                min-height: 95vh;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="crt-overlay"></div>
+    <div class="scanline"></div>
+
+    <div class="terminal-wrapper">
+        <header class="term-header">
+            <span>// SECURE_DEV_NET</span>
+            <span class="term-status">CLASSIFIED // LEVEL 5 ACCESS</span>
+            <span>ID: <span id="session-id">8475-AB</span></span>
+        </header>
+
+        <div class="term-grid">
+            <!-- Sidebar -->
+            <aside class="file-meta">
+                <div class="meta-block">
+                    <h3>PROJECT_ID</h3>
+                    <div class="meta-value" id="p-id">LOADING...</div>
+                </div>
+                <div class="meta-block">
+                    <h3>DEPLOYMENT_DATE</h3>
+                    <div class="meta-value" id="p-date">--/--/--</div>
+                </div>
+                <div class="meta-block">
+                    <h3>SECURITY_CLEARANCE</h3>
+                    <div class="meta-value">TOP SECRET</div>
+                </div>
+                <div class="meta-block">
+                    <h3>CATEGORY</h3>
+                    <div class="meta-value" id="p-cat">-----</div>
+                </div>
+            </aside>
+
+            <!-- Main Content -->
+            <main class="file-content">
+                <h1 id="p-title">INITIALIZING CONNECTION...</h1>
+
+                <div id="content-area" style="opacity: 0; transition: 1s;">
+                    <h2>// MISSION_BRIEF</h2>
+                    <p id="p-desc">Decrypting packet data...</p>
+
+                    <h2>// OPERATIONAL_CHALLENGE</h2>
+                    <p id="p-challenge">Analyzing threat vectors...</p>
+
+                    <h2>// TACTICAL_SOLUTION</h2>
+                    <p id="p-solution">Deploying countermeasures...</p>
+
+                    <div id="p-visual">
+                        <!-- Code Block -->
+                    </div>
+                </div>
+            </main>
+        </div>
+
+        <footer class="term-footer">
+            <a href="index.html#projects" class="back-btn">
+                < TERMINATE_SESSION</a>
+                    <span>ENCRYPTION: AES-256-GCM</span>
+        </footer>
+    </div>
+
+    <script>
+        // Database
+        const projectDB = {
+            "secure_cloud": {
+                id: "AWS-MIG-01",
+                title: "SECURE_CLOUD_MIGRATION",
+                date: "2024.Q3",
+                category: "INFRASTRUCTURE",
+                desc: "Executed a strategic migration of mission-critical banking protocols to a distributed AWS microservices architecture. Primary objective was the implementation of a Zero Trust security model to mitigate lateral threat movement.",
+                challenge: "Legacy monolith structure exposed critical vulnerabilities via hardcoded credentials and a flat network topology.",
+                solution: "Engineered a segregated VPC architecture with private subnets. Enforced strict IAM policies and implemented automated credential rotation via AWS Secrets Manager.",
+                code: `resource "aws_security_group" "app_sg" {
+  name        = "deny_all_default"
+  description = "Explicitly deny unauthorized traffic"
+  vpc_id      = aws_vpc.main.id
+
+  ingress {
+    description = "TLS Encrypted Control Channel"
+    from_port   = 443
+    to_port     = 443
+    protocol    = "tcp"
+    cidr_blocks = [var.vpc_cidr]
+  }
+}`
+            },
+            "ai_threat": {
+                id: "AI-SENTINEL-X",
+                title: "THREAT_DETECTION.AI",
+                date: "2025.Q1",
+                category: "ARTIFICIAL_INTEL",
+                desc: " deployed an autonomous Machine Learning sentinel capable of real-time packet analysis. System identifies anomaly signatures consistent with APTs and zero-day exploits.",
+                challenge: "Conventional signature-based WAFs failed to intercept polymorphic attack vectors and slow-rate intrusions.",
+                solution: "Trained a specialized Isolation Forest algorithm on 50GB of captured dark web traffic. Achieved 99.4% accuracy in outlier detection.",
+                code: `from sklearn.ensemble import IsolationForest
+
+# Initialize Sentinel Model
+sentinel = IsolationForest(
+    n_estimators=100,
+    contamination=0.01, # Expected anomaly rate
+    random_state=42
+)
+
+# Begin Training Sequence
+sentinel.fit(network_traffic_data)
+print("SENTINEL ONLINE.")`
+            },
+            "pentest_lab": {
+                id: "RED-TEAM-LAB",
+                title: "AUTO_PENTEST_GRID",
+                date: "2023.Q4",
+                category: "OFFENSIVE_OPS",
+                desc: "Constructed a contained combat simulation environment for offensive security training. Sandbox allows for live-fire exercises against DVWA and Juice Shop targets.",
+                challenge: "Manual environment provisioning was resource-intensive and risked host contamination.",
+                solution: "Orchestrated a containerized Docker battleground deployed via a singular bash command sequence. Network isolation guarantees host safety.",
+                code: `#!/bin/bash
+echo "[+] DEPLOYING BATTLEGROUND..."
+
+docker-compose up -d
+
+if [ $? -eq 0 ]; then
+    echo "[+] TARGETS ACTIVE: 172.16.0.0/24"
+    echo "[+] ATTACK BOX: STANDBY"
+else
+    echo "[-] DEPLOYMENT FAILURE"
+    exit 1
+fi`
+            }
+        };
+
+        // Boot Sequence
+        window.onload = () => {
+            const params = new URLSearchParams(window.location.search);
+            const pid = params.get('id');
+            const data = projectDB[pid];
+
+            if (data) {
+                // Randomize Session ID
+                document.getElementById('session-id').innerText = Math.floor(Math.random() * 9000 + 1000) + "-X";
+
+                // Typewriter Effect for Title
+                const titleEl = document.getElementById('p-title');
+                let titleText = data.title;
+                titleEl.innerText = "";
+                let i = 0;
+
+                const typeTitle = setInterval(() => {
+                    titleEl.innerText += titleText.charAt(i);
+                    i++;
+                    if (i > titleText.length) {
+                        clearInterval(typeTitle);
+                        revealContent(data);
+                    }
+                }, 50);
+
+                // Set Meta
+                document.getElementById('p-id').innerText = data.id;
+                document.getElementById('p-date').innerText = data.date;
+                document.getElementById('p-cat').innerText = data.category;
+
+            } else {
+                document.getElementById('p-title').innerText = "ACCESS_DENIED // FILE_NOT_FOUND";
+            }
+        };
+
+        function revealContent(data) {
+            const contentArea = document.getElementById('content-area');
+            document.getElementById('p-desc').innerText = data.desc;
+            document.getElementById('p-challenge').innerText = data.challenge;
+            document.getElementById('p-solution').innerText = data.solution;
+            document.getElementById('p-visual').innerHTML = `<div class="code-display">${data.code}</div>`;
+
+            contentArea.style.opacity = "1";
+        }
+    </script>
+</body>
+
+</html>
